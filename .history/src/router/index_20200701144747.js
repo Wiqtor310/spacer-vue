@@ -5,7 +5,7 @@ import About from '../views/About.vue';
 
 Vue.use(Router);
 
-export default new Router({
+export default new Router ({
   routes: [
     {
       path: '/',
@@ -16,6 +16,6 @@ export default new Router({
       path: '/about',
       name: 'about',
       component: About,
-    },
-  ],
-});
+    }
+  ]
+})
