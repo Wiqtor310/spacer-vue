@@ -31,7 +31,7 @@ export default {
     handleInput: debounce(function() {
       axios.get(`${API}?q=${this.searchValue}@media_type=image`)
         .then((response) => {
-          this.results = response.data.collection.items;
+          results = response.data.collection.items;
         })
         .catch((error) => {
           console.log(error);

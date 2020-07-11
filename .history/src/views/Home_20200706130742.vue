@@ -27,8 +27,7 @@ export default {
     };
   },
   methods: {
-    // eslint-disable-next-line space-before-function-paren
-    handleInput: debounce(function() {
+    handleInput: debounce(function () {
       axios.get(`${API}?q=${this.searchValue}@media_type=image`)
         .then((response) => {
           this.results = response.data.collection.items;

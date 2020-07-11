@@ -2,12 +2,7 @@
   <div class="wrapper">
     <div class="search">
       <label for="search">Search</label>
-      <input id="search" name="search" v-model="searchValue" @input="handleInput" />
-      <ul>
-        <li v-for="item in results" :key="item.data[0].nasa_id">
-          <p>{{ item.data[0].description }}</p>
-        </li>
-      </ul>
+      <input id="search" name="search" v-model="searchValue" @input="handleInput">
     </div>
   </div>
 </template>
@@ -23,15 +18,13 @@ export default {
   data() {
     return {
       searchValue: '',
-      results: [],
     };
   },
   methods: {
-    // eslint-disable-next-line space-before-function-paren
     handleInput: debounce(function() {
       axios.get(`${API}?q=${this.searchValue}@media_type=image`)
         .then((response) => {
-          this.results = response.data.collection.items;
+          console.log(response);
         })
         .catch((error) => {
           console.log(error);

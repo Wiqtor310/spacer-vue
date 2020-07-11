@@ -4,7 +4,7 @@
       <label for="search">Search</label>
       <input id="search" name="search" v-model="searchValue" @input="handleInput" />
       <ul>
-        <li v-for="item in results" :key="item.data[0].nasa_id">
+        <li v-for="item in result" :key="item.data[0].nasa_id">
           <p>{{ item.data[0].description }}</p>
         </li>
       </ul>
@@ -27,7 +27,6 @@ export default {
     };
   },
   methods: {
-    // eslint-disable-next-line space-before-function-paren
     handleInput: debounce(function() {
       axios.get(`${API}?q=${this.searchValue}@media_type=image`)
         .then((response) => {
